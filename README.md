@@ -1,2 +1,2 @@
-# channel-store
-Channel persistence implementations
+# channels-js
+Channels JavaScript implementations
