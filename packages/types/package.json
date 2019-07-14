@@ -1,0 +1,32 @@
+{
+  "name": "@channels/types",
+  "version": "0.1.0",
+  "description": "Types for channel implementations",
+  "main": "lib/index.js",
+  "repository": "https://github.com/channels-org/channels-js",
+  "author": "Evgeny Poberezkin <e.poberezkin@me.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint './src/**/*.{ts,tsx}' -t verbose -p .",
+    "prettier:write": "prettier --ignore-path .gitignore --write './**/*.{md,json,yaml,js,jsx,ts,tsx}'",
+    "prettier:check": "prettier --ignore-path .gitignore --list-different './**/*.{md,json,yaml,js,jsx,ts,tsx}'"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "tslint -t verbose -p .",
+      "git add"
+    ],
+    "*.{md,json,yaml,js,jsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
